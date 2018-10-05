@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var center = 250;
+var start = 150;
+var offset = start;
+
+function draw_J(hei,wid,col) //100 50 blue
+{
+  ctx.beginPath();
+  ctx.strokeStyle = col;
+  ctx.moveTo(start,center);
+	ctx.lineTo(start+wid,center);
+  ctx.moveTo(start+(wid/2),center);
+  ctx.lineTo(start+(wid/2),center+hei);
+  ctx.lineTo(start,center+hei);
+  ctx.lineTo(start,center+(hei/1.5));
+  ctx.moveTo(start,center);
+  ctx.closePath();
+  ctx.stroke(); 
+}
+
+function draw_O(hei,wid,col)
+{
+  ctx.beginPath();
+  ctx.strokeStyle = col;
+  ctx.moveTo(offset,center);
+  ctx.lineTo(offset,center+hei);
+  ctx.lineTo(offset+wid,center+hei);
+  ctx.moveTo(offset,center);
+  ctx.lineTo(offset+wid,center);
+  ctx.lineTo(offset+wid,center+hei);
+  ctx.moveTo(offset,center);
+  ctx.closePath();
+  ctx.stroke();
+}
+
+function draw_A(hei,wid,col)
+{
+  ctx.beginPath();
+  ctx.strokeStyle = col;
+  ctx.moveTo(offset,center);
+  ctx.lineTo(offset,center+hei);
+  ctx.moveTo(offset,center);
+  ctx.lineTo(offset+wid,center);
+  ctx.lineTo(offset+wid,center+hei);
+  ctx.moveTo(offset,center+(hei/2));
+  ctx.lineTo(offset+wid,center+(hei/2));
+  ctx.closePath();
+  ctx.stroke();
+}
+
+draw_J(100,50,"blue");
+offset += 75;
+draw_O(100,50,"green");
+offset += 75;
+draw_A(100,50,"red");
+
+</script>
+
+</body>
+</html>
